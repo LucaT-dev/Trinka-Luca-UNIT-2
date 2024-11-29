@@ -1,0 +1,221 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluare UNIT 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .email {
+            color: blue;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Trinka Luca NICOLAS</h1>
+        <p><a href="mailto:Trinka.Ad.Luca@student.utcluj.ro" class="email">Trinka.Ad.Luca@student.utcluj.ro</a></p>
+    </header>
+    <section class="section">
+        <h2>Specificații tehnice ale stației principale de lucru</h2>
+<table>
+    <tr>
+        <th>Denumire componentă</th>
+        <th>Parametri</th>
+        <th>Producător</th>
+    </tr>
+    <tr>
+        <td>Procesor</td>
+        <td>Intel(R) Pentium(R) CPU G4560 @ 3.50GHz   3.50 GHz</td>
+        <td>Intel</td>
+    </tr>
+    <tr>
+        <td>Memorie RAM</td>
+        <td>8.00 GB DDR4</td>
+        <td>Kingston</td>
+    </tr>
+    <tr>
+        <td>Placa video</td>
+        <td>NVIDIA Geforce GTX 1050 TI</td>
+        <td>NVIDIA</td>
+    </tr>
+</table>
+
+    </section>
+    <section class="section">
+    <h2>Structura rețelei personale și accesul la internet</h2>
+    <img src="StructuraRetelei.png" alt="Structura rețelei personale" style="width:100%; max-width:600px; margin: 10px auto; display:block; border:1px solid #ccc;">
+</section>
+    <section class="section">
+        <h3>Caracteristicile conexiunii la rețea</h3>
+        <ul>
+            <li><strong>Adresa MAC: A0-F3-C1-07-0B-D2</strong></li>
+            <li><strong>Adresa IP: 192.168.0.231</strong></li>
+            <li><strong>Debit la download: 61.87 Mbps</strong></li>
+            <li><strong>Debit la upload: 46.22 Mbps</strong></li>
+        </ul>
+    </section>
+    <section class="slideshow-section">
+    <h2>Utilizarea resurselor (slideshow)</h2>
+    <div class="slideshow-container">
+        <div class="slides fade">
+            <img src="1.png" alt="Imagine 1" class="slide-img">
+        </div>
+        <div class="slides fade">
+            <img src="2.png" alt="Imagine 2" class="slide-img">
+        </div>
+        <div class="slides fade">
+            <img src="3.png" alt="Imagine 3" class="slide-img">
+        </div>
+        <div class="slides fade">
+            <img src="4.png" alt="Imagine 4" class="slide-img">
+        </div>
+
+        <!-- Butoane pentru navigare -->
+        <a class="prev" onclick="changeSlide(-1)">❮</a>
+        <a class="next" onclick="changeSlide(1)">❯</a>
+    </div>
+    <div class="dots-container">
+        <span class="dot" onclick="setSlide(0)"></span>
+        <span class="dot" onclick="setSlide(1)"></span>
+        <span class="dot" onclick="setSlide(2)"></span>
+        <span class="dot" onclick="setSlide(3)"></span>
+    </div>
+</section>
+
+<script>
+    let currentSlideIndex = 0;
+    const slides = document.querySelectorAll(".slides");
+    const dots = document.querySelectorAll(".dot");
+
+    function showSlide(index) {
+        if (index >= slides.length) currentSlideIndex = 0;
+        if (index < 0) currentSlideIndex = slides.length - 1;
+
+        slides.forEach((slide, i) => {
+            slide.style.display = i === currentSlideIndex ? "block" : "none";
+        });
+
+        dots.forEach((dot, i) => {
+            dot.className = dot.className.replace(" active", "");
+            if (i === currentSlideIndex) dot.className += " active";
+        });
+    }
+
+    function changeSlide(direction) {
+        currentSlideIndex += direction;
+        showSlide(currentSlideIndex);
+    }
+
+    function setSlide(index) {
+        currentSlideIndex = index;
+        showSlide(currentSlideIndex);
+    }
+
+    // Inițializează primul slide
+    showSlide(currentSlideIndex);
+
+    // Auto-play (opțional)
+    setInterval(() => changeSlide(1), 3000);
+</script>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    .slideshow-container {
+        position: relative;
+        max-width: 800px;
+        margin: auto;
+        overflow: hidden;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+    }
+
+    .slides {
+        display: none;
+    }
+
+    .slide-img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 10px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        border: none;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 5px;
+        transform: translateY(-50%);
+    }
+
+    .prev {
+        left: 10px;
+    }
+
+    .next {
+        right: 10px;
+    }
+
+    .dots-container {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+    }
+
+    .active {
+        background-color: #717171;
+    }
+
+    .fade {
+        animation: fade 1s ease-in-out;
+    }
+
+    @keyframes fade {
+        from {
+            opacity: 0.4;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
